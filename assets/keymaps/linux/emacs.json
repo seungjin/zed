@@ -35,7 +35,9 @@
       "ctrl-l": "editor::ScrollCursorCenterTopBottom",
       "ctrl-s": "buffer_search::Deploy",
       "ctrl-x ctrl-f": "file_finder::Toggle",
-      "ctrl-shift-r": "editor::Rename"
+      "ctrl-shift-r": "editor::Rename",
+      "alt-x": "command_palette::Toggle",
+      "ctrl-;": "editor::ToggleComments"
     }
   },
   {
