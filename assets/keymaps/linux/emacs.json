@@ -10,7 +10,7 @@
       "ctrl-shift-g": "go_to_line::Toggle",
       //"ctrl-space": "editor::SetMark",
       "ctrl-/": "editor::Undo",
-      "ctrl-shift-/: "editor::Redo",
+      "ctrl-shift-/": "editor::Redo",
       "ctrl-x u": "editor::Undo",
       "ctrl-x ctrl-u": "editor::Redo",
       "ctrl-f": "editor::MoveRight",
