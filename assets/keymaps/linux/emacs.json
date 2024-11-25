@@ -18,7 +18,7 @@
       "ctrl-_": "editor::Undo",
       "ctrl-f": "editor::MoveRight",
       "ctrl-b": "editor::MoveLeft",
-      "ctrl-n": "editor::MoveDown",
+      "ctrl-n": ["workspace::SendKeystrokes", "down"], // This trick prevents creating new file at the end of buffer
       "ctrl-p": "editor::MoveUp",
       "ctrl-a": "editor::MoveToBeginningOfLine", // move-beginning-of-line
       "ctrl-e": "editor::MoveToEndOfLine", // move-end-of-line
