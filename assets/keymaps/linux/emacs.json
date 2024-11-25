@@ -2,6 +2,8 @@
 //
 // To see the default key bindings run `zed: open default keymap`
 // from the command palette.
+//
+// Used this https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf
 [
   {
     "context": "Editor",
@@ -13,32 +15,34 @@
       "ctrl-shift-/": "editor::Redo",
       "ctrl-x u": "editor::Undo",
       "ctrl-x ctrl-u": "editor::Redo",
+      "ctrl-_": "editor::Undo",
       "ctrl-f": "editor::MoveRight",
       "ctrl-b": "editor::MoveLeft",
       "ctrl-n": "editor::MoveDown",
       "ctrl-p": "editor::MoveUp",
-      "ctrl-a": "editor::MoveToBeginningOfLine",
-      "ctrl-e": "editor::MoveToEndOfLine",
+      "ctrl-a": "editor::MoveToBeginningOfLine", // move-beginning-of-line
+      "ctrl-e": "editor::MoveToEndOfLine", // move-end-of-line
       "alt-f": "editor::MoveToNextSubwordEnd",
       "alt-b": "editor::MoveToPreviousSubwordStart",
-      "ctrl-d": "editor::Delete",
+      "ctrl-d": "editor::Delete", // delete-char
       "alt-d": "editor::DeleteToNextWordEnd",
       "ctrl-k": "editor::CutToEndOfLine",
       "ctrl-w": "editor::Cut",
       "alt-w": "editor::Copy",
       "ctrl-y": "editor::Paste",
-      "ctrl-_": "editor::Undo",
       "ctrl-v": "editor::MovePageDown",
       "alt-v": "editor::MovePageUp",
       "alt->": "editor::MoveToEnd", // end-of-buffe
       "alt-<": "editor::MoveToBeginning", // beginning-of-buffer
       "ctrl-l": "editor::ScrollCursorCenterTopBottom",
       "ctrl-s": "buffer_search::Deploy",
-      "ctrl-x ctrl-f": "file_finder::Toggle",
-      "ctrl-shift-r": "editor::Rename",
+      "ctrl-x ctrl-f": "file_finder::Toggle", // find-file
+      //"ctrl-x x r": "editor::?", // rename-buffer
       "alt-x": "command_palette::Toggle",
       "ctrl-x ctrl-;": "editor::ToggleComments", // comment-line
-      "ctrl-c c": "task::Spawn" // Compile command
+      "ctrl-c c": "task::Spawn", // Compile command
+      "alt-{": "editor::MoveToStartOfParagraph",
+      "alt-}": "editor::MoveToEndOfParagraph"
     }
   },
   {
