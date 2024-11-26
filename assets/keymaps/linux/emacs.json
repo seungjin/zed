@@ -63,28 +63,32 @@
       "ctrl-x ctrl-;": "editor::ToggleComments", // comment-line
       "ctrl-c c": "task::Spawn", // Compile command
       "alt-{": "editor::MoveToStartOfParagraph",
-      "alt-}": "editor::MoveToEndOfParagraph",
+      "alt-}": "editor::MoveToEndOfParagraph"
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
       "ctrl-x left": "pane::GoBack",
       "ctrl-x right": "pane::GoForward"
     }
   },
   {
-    "context": "Pane",
-    "bindings": {}
-  },
-  {
-    "context": "project_search",
+    "context": "Project_search",
     "bindings": {
       "ctrl-s": "search::SelectNextMatch",
       "ctrl-r": "search::SelectPrevMatch"
     }
   },
   {
-    "context": "terminal",
+    "context": "Terminal",
     "bindings": {
+      "ctrl-g": ["terminal::SendKeystroke", "escape"],
       "alt-w": "terminal::Copy",
       "ctrl-y": "terminal::Paste",
-      "ctrl-k": "terminal::Clear"
+      "ctrl-b": ["terminal::SendKeystroke", "left"],
+      "ctrl-x o": "workspace::ActivateNextPane",
+      "ctrl-x b": "tab_switcher::Toggle"
     }
   }
 ]
