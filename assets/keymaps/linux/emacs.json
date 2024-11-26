@@ -7,6 +7,7 @@
   {
     "context": "Workspace",
     "bindings": {
+      "ctrl-s": null,
       "alt-x": "command_palette::Toggle",
       "ctrl-x k": "pane::CloseActiveItem",
       "ctrl-x ctrl-c": "workspace::CloseAllItemsAndPanes",
@@ -74,13 +75,6 @@
     }
   },
   {
-    "context": "Project_search",
-    "bindings": {
-      "ctrl-s": "search::SelectNextMatch",
-      "ctrl-r": "search::SelectPrevMatch"
-    }
-  },
-  {
     "context": "Terminal",
     "bindings": {
       "ctrl-g": ["terminal::SendKeystroke", "escape"],
@@ -88,7 +82,23 @@
       "ctrl-y": "terminal::Paste",
       "ctrl-b": ["terminal::SendKeystroke", "left"],
       "ctrl-x o": "workspace::ActivateNextPane",
-      "ctrl-x b": "tab_switcher::Toggle"
+      "ctrl-x b": "tab_switcher::Toggle",
+      "ctrl-k": ["terminal::SendKeystroke", "ctrl-k"],
+      "shift-right": "terminal::SelectRight", // Not exist yet
+      "shift-left": "terminal::SelectLeft" // Not exist yet
+    }
+  },
+  {
+    "context": "BufferSearchBar",
+    "bindings": {
+      "ctrl-s": "search::SelectNextMatch",
+      "ctrl-r": "search::SelectPrevMatch"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "ctrl-x k": "workspace::ToggleLeftDock"
     }
   }
 ]
