@@ -71,5 +71,20 @@
   {
     "context": "Pane",
     "bindings": {}
+  },
+  {
+    "context": "project_search",
+    "bindings": {
+      "ctrl-s": "search::SelectNextMatch",
+      "ctrl-r": "search::SelectPrevMatch"
+    }
+  },
+  {
+    "context": "terminal",
+    "bindings": {
+      "alt-w": "terminal::Copy",
+      "ctrl-y": "terminal::Paste",
+      "ctrl-k": "terminal::Clear"
+    }
   }
 ]
