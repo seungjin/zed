@@ -1,4 +1,3 @@
-// documentation: https://zed.dev/docs/key-bindings
 //
 // To see the default key bindings run `zed: open default keymap`
 // from the command palette.
@@ -32,7 +31,7 @@
       "ctrl-y": "editor::Paste",
       "ctrl-v": "editor::MovePageDown",
       "alt-v": "editor::MovePageUp",
-      "alt->": "editor::MoveToEnd", // end-of-buffe
+      "alt->": "editor::MoveToEnd", // end-of-buffesc
       "alt-<": "editor::MoveToBeginning", // beginning-of-buffer
       "ctrl-l": "editor::ScrollCursorCenterTopBottom",
       "ctrl-s": "buffer_search::Deploy",
@@ -46,18 +45,20 @@
       "ctrl-x 0": "pane::CloseActiveItem",
       "ctrl-x 1": "pane::CloseInactiveItems",
       "ctrl-x 2": "pane::SplitDown", // split-window-below
-      "ctrl-x 3": "pane::SplitRight" // sprlit-window-right
+      "ctrl-x 3": "pane::SplitRight", // sprlit-window-right
       // "": "pane::SplitVertical", // split-window-vertically
       // "": "pane::SplitHorizontal", // split-window-horizontally
       // "ctrl-x W 2": "", // split-root-window-below
       // "ctrl-x W 3": "" // split-root-window-right
+      "ctrl-x left": "pane::GoBack",
+      "ctrl-x right": "pane::GoForward"
     }
   },
   {
     "context": "Workspace",
     "bindings": {
       "ctrl-x k": "pane::CloseActiveItem",
-      "ctrl-x ctrl-c": "workspace::CloseWindow",
+      "ctrl-x ctrl-c": "workspace::CloseAllItemsAndPanes",
       "ctrl-x o": "workspace::ActivateNextPane",
       "ctrl-x b": "tab_switcher::Toggle",
       "ctrl-x 0": "pane::CloseActiveItem",
@@ -72,9 +73,6 @@
   },
   {
     "context": "Pane",
-    "bindings": {
-      "ctrl-alt-left": "pane::GoBack",
-      "ctrl-alt-right": "pane::GoForward"
-    }
+    "bindings": {}
   }
 ]
