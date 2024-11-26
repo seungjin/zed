@@ -5,6 +5,28 @@
 // Used this https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf
 [
   {
+    "context": "Workspace",
+    "bindings": {
+      "alt-x": "command_palette::Toggle",
+      "ctrl-x k": "pane::CloseActiveItem",
+      "ctrl-x ctrl-c": "workspace::CloseAllItemsAndPanes",
+      "ctrl-x o": "workspace::ActivateNextPane",
+      "ctrl-x b": "tab_switcher::Toggle",
+      "ctrl-x 0": "pane::CloseActiveItem",
+      "ctrl-x 1": "pane::CloseInactiveItems",
+      "ctrl-x 2": "pane::SplitDown", // split-window-below
+      "ctrl-x 3": "pane::SplitRight", // sprlit-window-right
+      // "": "pane::SplitVertical", // split-window-vertically
+      // "": "pane::SplitHorizontal", // split-window-horizontally
+      // "ctrl-x W 2": "", // split-root-window-below
+      // "ctrl-x W 3": "" // split-root-window-right
+      "ctrl-x ctrl-f": "file_finder::Toggle",
+      "ctrl-x ctrl-s": "workspace::Save",
+      "ctrl-x ctrl-w": "workspace::SaveAs",
+      "ctrl-x s": "workspace::SaveAll"
+    }
+  },
+  {
     "context": "Editor",
     "bindings": {
       "ctrl-g": ["workspace::SendKeystrokes", "escape"], // "ctrl-g": "editor::Cancel",
@@ -42,33 +64,8 @@
       "ctrl-c c": "task::Spawn", // Compile command
       "alt-{": "editor::MoveToStartOfParagraph",
       "alt-}": "editor::MoveToEndOfParagraph",
-      "ctrl-x 0": "pane::CloseActiveItem",
-      "ctrl-x 1": "pane::CloseInactiveItems",
-      "ctrl-x 2": "pane::SplitDown", // split-window-below
-      "ctrl-x 3": "pane::SplitRight", // sprlit-window-right
-      // "": "pane::SplitVertical", // split-window-vertically
-      // "": "pane::SplitHorizontal", // split-window-horizontally
-      // "ctrl-x W 2": "", // split-root-window-below
-      // "ctrl-x W 3": "" // split-root-window-right
       "ctrl-x left": "pane::GoBack",
       "ctrl-x right": "pane::GoForward"
-    }
-  },
-  {
-    "context": "Workspace",
-    "bindings": {
-      "ctrl-x k": "pane::CloseActiveItem",
-      "ctrl-x ctrl-c": "workspace::CloseAllItemsAndPanes",
-      "ctrl-x o": "workspace::ActivateNextPane",
-      "ctrl-x b": "tab_switcher::Toggle",
-      "ctrl-x 0": "pane::CloseActiveItem",
-      "ctrl-x 1": "pane::CloseInactiveItems",
-      "ctrl-x 2": "pane::SplitVertical",
-      "ctrl-x ctrl-f": "file_finder::Toggle",
-      "ctrl-x ctrl-s": "workspace::Save",
-      "ctrl-x ctrl-w": "workspace::SaveAs",
-      "ctrl-x s": "workspace::SaveAll",
-      "shift shift": "file_finder::Toggle"
     }
   },
   {
