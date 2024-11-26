@@ -48,8 +48,8 @@
       "alt-b": "editor::MoveToPreviousSubwordStart",
       "ctrl-d": "editor::Delete", // delete-char
       "alt-d": "editor::DeleteToNextWordEnd",
-      "ctrl-k": "editor::CutToEndOfLine",
-      "ctrl-w": "editor::Cut",
+      "ctrl-k": "editor::CutToEndOfLine", // kill-line
+      "ctrl-w": "editor::Cut", // kill-region
       "alt-w": "editor::Copy",
       "ctrl-y": "editor::Paste",
       "ctrl-v": "editor::MovePageDown",
@@ -91,7 +91,7 @@
   {
     "context": "BufferSearchBar",
     "bindings": {
-      "ctrl-s": "search::SelectNextMatch",
+      "ctrl-s": "search::SelectNextMatch", // Not working
       "ctrl-r": "search::SelectPrevMatch"
     }
   },
