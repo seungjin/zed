@@ -11,7 +11,7 @@
       "alt-x": "command_palette::Toggle",
       "ctrl-g": ["workspace::SendKeystrokes", "escape"],
       "ctrl-x k": "pane::CloseActiveItem",
-      "ctrl-x ctrl-c": "workspace::CloseAllItemsAndPanes",
+      "ctrl-x ctrl-c": "zed::Quit",
       "ctrl-x o": "workspace::ActivateNextPane",
       "ctrl-x b": "tab_switcher::Toggle",
       "ctrl-x 0": "pane::CloseActiveItem",
