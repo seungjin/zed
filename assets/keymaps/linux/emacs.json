@@ -65,11 +65,12 @@
       "ctrl-c c": "task::Spawn", // Compile command
       "alt-{": "editor::MoveToStartOfParagraph",
       "alt-}": "editor::MoveToEndOfParagraph",
-      "ctrl-x t 2": "workspace::NewFile", // tab-bar-new-tab
       "ctrl-x t 0": "pane::CloseActiveItem", // tab-bar-close-tab
-      "ctrl-x t 1": "workspace::CloseInactiveTabsAndPanes", // close other tab
-      "ctrl-x t o": "pane::ActivatePrevItem", // tab-bar-switch-to-prev-tab
-      "ctrl-x t O": "pane::ActivateNextItem" // tab-bar-switch-to-next-tab
+      "ctrl-x t 1": "workspace::CloseInactiveTabsAndPanes", // tab-bar-close-tab-select
+      "ctrl-x t 2": "workspace::NewFile", // tab-bar-new-tab
+      "ctrl-x t o": "pane::ActivateNextItem", // tab-bar-tab-next
+      "ctrl-tab": "pane::ActivateNextItem", // tab-bar-tab-next
+      "shift-ctrl-tab": "pane::ActivatePrevItem" // tab-bar-tab-previous
     }
   },
   {
