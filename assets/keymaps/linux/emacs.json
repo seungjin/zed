@@ -9,16 +9,16 @@
     "bindings": {
       "ctrl-s": null,
       "alt-x": "command_palette::Toggle",
+      "ctrl-g": ["workspace::SendKeystrokes", "escape"],
       "ctrl-x k": "pane::CloseActiveItem",
       "ctrl-x ctrl-c": "workspace::CloseAllItemsAndPanes",
       "ctrl-x o": "workspace::ActivateNextPane",
       "ctrl-x b": "tab_switcher::Toggle",
       "ctrl-x 0": "pane::CloseActiveItem",
-      "ctrl-x 1": "pane::CloseInactiveItems",
+      "ctrl-x 1": "workspace::ToggleZoom", // "pane::CloseInactiveItems",
       "ctrl-x 2": "pane::SplitDown", // split-window-below
       "ctrl-x 3": "pane::SplitRight", // sprlit-window-right
       // "": "pane::SplitVertical", // split-window-vertically
-      // "": "pane::SplitHorizontal", // split-window-horizontally
       // "ctrl-x W 2": "", // split-root-window-below
       // "ctrl-x W 3": "" // split-root-window-right
       "ctrl-x ctrl-f": "file_finder::Toggle",
@@ -54,7 +54,7 @@
       "ctrl-y": "editor::Paste",
       "ctrl-v": "editor::MovePageDown",
       "alt-v": "editor::MovePageUp",
-      "alt->": "editor::MoveToEnd", // end-of-buffesc
+      "alt->": "editor::MoveToEnd", // end-of-buffer
       "alt-<": "editor::MoveToBeginning", // beginning-of-buffer
       "ctrl-l": "editor::ScrollCursorCenterTopBottom",
       "ctrl-s": "buffer_search::Deploy",
@@ -64,7 +64,12 @@
       "ctrl-x ctrl-;": "editor::ToggleComments", // comment-line
       "ctrl-c c": "task::Spawn", // Compile command
       "alt-{": "editor::MoveToStartOfParagraph",
-      "alt-}": "editor::MoveToEndOfParagraph"
+      "alt-}": "editor::MoveToEndOfParagraph",
+      "ctrl-x t 2": "workspace::NewFile", // tab-bar-new-tab
+      "ctrl-x t 0": "pane::CloseActiveItem", // tab-bar-close-tab
+      "ctrl-x t 1": "workspace::CloseInactiveTabsAndPanes", // close other tab
+      "ctrl-x t o": "pane::ActivatePrevItem", // tab-bar-switch-to-prev-tab
+      "ctrl-x t O": "pane::ActivateNextItem" // tab-bar-switch-to-next-tab
     }
   },
   {
@@ -83,7 +88,6 @@
       "ctrl-b": ["terminal::SendKeystroke", "left"],
       "ctrl-x o": "workspace::ActivateNextPane",
       "ctrl-x b": "tab_switcher::Toggle",
-      "ctrl-k": ["terminal::SendKeystroke", "ctrl-k"],
       "shift-right": "terminal::SelectRight", // Not exist yet
       "shift-left": "terminal::SelectLeft" // Not exist yet
     }
@@ -100,5 +104,9 @@
     "bindings": {
       "ctrl-x k": "workspace::ToggleLeftDock"
     }
+  },
+  {
+    "context": "TabSwitcher",
+    "bindings": {}
   }
 ]
