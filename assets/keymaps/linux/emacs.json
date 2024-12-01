@@ -28,7 +28,7 @@
     }
   },
   {
-    "context": "Editor || Assistant",
+    "context": "Editor || AssistantPanel",
     "bindings": {
       "ctrl-g": ["workspace::SendKeystrokes", "escape"], // "ctrl-g": "editor::Cancel",
       "alt-g g": "go_to_line::Toggle",
@@ -89,8 +89,14 @@
       "ctrl-b": ["terminal::SendKeystroke", "left"],
       "ctrl-x o": "workspace::ActivateNextPane",
       "ctrl-x b": "tab_switcher::Toggle",
-      "shift-right": "terminal::SelectRight", // Not exist yet
-      "shift-left": "terminal::SelectLeft" // Not exist yet
+      "up": ["terminal::SendKeystroke", "up"],
+      "pageup": ["terminal::SendKeystroke", "pageup"],
+      "down": ["terminal::SendKeystroke", "down"],
+      "pagedown": ["terminal::SendKeystroke", "pagedown"],
+      "escape": ["terminal::SendKeystroke", "escape"],
+      "ctrl-k": ["terminal::SendKeystroke", "ctrl-k"]
+      //"shift-right": "terminal::SelectRight", // Not exist yet
+      //"shift-left": "terminal::SelectLeft" // Not exist yet
     }
   },
   {
