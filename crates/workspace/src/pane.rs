@@ -828,9 +828,10 @@ impl Pane {
 
     pub fn close_current_preview_item(&mut self, cx: &mut ViewContext<Self>) -> Option<usize> {
         let item_idx = self.preview_item_idx()?;
+        let id = self.preview_item_id()?;
 
         let prev_active_item_index = self.active_item_index;
-        self.remove_item(item_idx, false, false, cx);
+        self.remove_item(id, false, false, cx);
         self.active_item_index = prev_active_item_index;
 
         if item_idx < self.items.len() {
@@ -1403,13 +1404,7 @@ impl Pane {
 
                 // Remove the item from the pane.
                 pane.update(&mut cx, |pane, cx| {
-                    if let Some(item_ix) = pane
-                        .items
-                        .iter()
-                        .position(|i| i.item_id() == item_to_close.item_id())
-                    {
-                        pane.remove_item(item_ix, false, true, cx);
-                    }
+                    pane.remove_item(item_to_close.item_id(), false, true, cx);
                 })
                 .ok();
             }
@@ -1421,11 +1416,14 @@ impl Pane {
 
     pub fn remove_item(
         &mut self,
-        item_index: usize,
+        item_id: EntityId,
         activate_pane: bool,
         close_pane_if_empty: bool,
         cx: &mut ViewContext<Self>,
     ) {
+        let Some(item_index) = self.index_for_item_id(item_id) else {
+            return;
+        };
         self._remove_item(item_index, activate_pane, close_pane_if_empty, None, cx)
     }
 
@@ -1615,7 +1613,9 @@ impl Pane {
                             .await?
                     }
                     Ok(1) => {
-                        pane.update(cx, |pane, cx| pane.remove_item(item_ix, false, false, cx))?;
+                        pane.update(cx, |pane, cx| {
+                            pane.remove_item(item.item_id(), false, false, cx)
+                        })?;
                     }
                     _ => return Ok(false),
                 }
@@ -1709,9 +1709,7 @@ impl Pane {
                 if let Some(abs_path) = abs_path.await.ok().flatten() {
                     pane.update(cx, |pane, cx| {
                         if let Some(item) = pane.item_for_path(abs_path.clone(), cx) {
-                            if let Some(idx) = pane.index_for_item(&*item) {
-                                pane.remove_item(idx, false, false, cx);
-                            }
+                            pane.remove_item(item.item_id(), false, false, cx);
                         }
 
                         item.save_as(project, abs_path, cx)
@@ -1777,15 +1775,15 @@ impl Pane {
         entry_id: ProjectEntryId,
         cx: &mut ViewContext<Pane>,
     ) -> Option<()> {
-        let (item_index_to_delete, item_id) = self.items().enumerate().find_map(|(i, item)| {
+        let item_id = self.items().find_map(|item| {
             if item.is_singleton(cx) && item.project_entry_ids(cx).as_slice() == [entry_id] {
-                Some((i, item.item_id()))
+                Some(item.item_id())
             } else {
                 None
             }
         })?;
 
-        self.remove_item(item_index_to_delete, false, true, cx);
+        self.remove_item(item_id, false, true, cx);
         self.nav_history.remove_item(item_id);
 
         Some(())
@@ -1890,7 +1888,7 @@ impl Pane {
     fn unpin_tab_at(&mut self, ix: usize, cx: &mut ViewContext<'_, Self>) {
         maybe!({
             let pane = cx.view().clone();
-            self.pinned_tab_count = self.pinned_tab_count.checked_sub(1).unwrap();
+            self.pinned_tab_count = self.pinned_tab_count.checked_sub(1)?;
             let destination_index = self.pinned_tab_count;
 
             let id = self.item_for_index(ix)?.item_id();
@@ -1951,7 +1949,9 @@ impl Pane {
         };
 
         let icon = item.tab_icon(cx);
-        let close_side = &ItemSettings::get_global(cx).close_position;
+        let settings = ItemSettings::get_global(cx);
+        let close_side = &settings.close_position;
+        let always_show_close_button = settings.always_show_close_button;
         let indicator = render_item_indicator(item.boxed_clone(), cx);
         let item_id = item.item_id();
         let is_first_item = ix == 0;
@@ -2046,7 +2046,9 @@ impl Pane {
                     end_slot_action = &CloseActiveItem { save_intent: None };
                     end_slot_tooltip_text = "Close Tab";
                     IconButton::new("close tab", IconName::Close)
-                        .visible_on_hover("")
+                        .when(!always_show_close_button, |button| {
+                            button.visible_on_hover("")
+                        })
                         .shape(IconButtonShape::Square)
                         .icon_color(Color::Muted)
                         .size(ButtonSize::None)
