@@ -24,7 +24,8 @@
       "ctrl-x ctrl-f": "file_finder::Toggle",
       "ctrl-x ctrl-s": "workspace::Save",
       "ctrl-x ctrl-w": "workspace::SaveAs",
-      "ctrl-x s": "workspace::SaveAll"
+      "ctrl-x s": "workspace::SaveAll",
+      "ctrl-x p g": "pane::DeploySearch" // project-find-regexp:
     }
   },
   {
