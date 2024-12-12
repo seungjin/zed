@@ -438,6 +438,7 @@ You can change the following settings to modify vim mode's behavior:
 | use_smartcase_find           | If `true`, `f` and `t` motions are case-insensitive when the target letter is lowercase.                                                                                                      | false         |
 | toggle_relative_line_numbers | If `true`, line numbers are relative in normal mode and absolute in insert mode, giving you the best of both options.                                                                         | false         |
 | custom_digraphs              | An object that allows you to add custom digraphs. Read below for an example.                                                                                                                  | {}            |
+| highlight_on_yank_duration   | The duration of the highlight animation(in ms). Set to `0` to disable                                                                                                                         | 200           |
 
 Here's an example of adding a digraph for the zombie emoji. This allows you to type `ctrl-k f z` to insert a zombie emoji. You can add as many digraphs as you like.
 
@@ -460,6 +461,7 @@ Here's an example of these settings changed:
     "use_multiline_find": true,
     "use_smartcase_find": true,
     "toggle_relative_line_numbers": true,
+    "highlight_on_yank_duration": 50,
     "custom_digraphs": {
       "fz": "🧟‍♀️"
     }
@@ -471,15 +473,15 @@ Here's an example of these settings changed:
 
 Here are a few general Zed settings that can help you fine-tune your Vim experience:
 
-| Property                | Description                                                                                                                                                   | Default Value          |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
-| cursor_blink            | If `true`, the cursor blinks.                                                                                                                                 | `true`                 |
-| relative_line_numbers   | If `true`, line numbers in the left gutter are relative to the cursor.                                                                                        | `false`                |
-| scrollbar               | Object that controls the scrollbar display. Set to `{ "show": "never" }` to hide the scroll bar.                                                              | `{ "show": "always" }` |
-| scroll_beyond_last_line | If set to `"one_page"`, allows scrolling up to one page beyond the last line. Set to `"off"` to prevent this behavior.                                        | `"one_page"`           |
-| vertical_scroll_margin  | The number of lines to keep above or below the cursor when scrolling. Set to `0` to allow the cursor to go up to the edges of the screen vertically.          | `3`                    |
-| gutter.line_numbers     | Controls the display of line numbers in the gutter. Set the `"line_numbers"` property to `false` to hide line numbers.                                        | `true`                 |
-| command_aliases         | Object that defines aliases for commands in the command palette. You can use it to define shortcut names for commands you use often. Read below for examples. | `{}`                   |
+| Property                | Description                                                                                                                                                   | Default Value        |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| cursor_blink            | If `true`, the cursor blinks.                                                                                                                                 | `true`               |
+| relative_line_numbers   | If `true`, line numbers in the left gutter are relative to the cursor.                                                                                        | `false`              |
+| scrollbar               | Object that controls the scrollbar display. Set to `{ "show": "never" }` to hide the scroll bar.                                                              | `{ "show": "auto" }` |
+| scroll_beyond_last_line | If set to `"one_page"`, allows scrolling up to one page beyond the last line. Set to `"off"` to prevent this behavior.                                        | `"one_page"`         |
+| vertical_scroll_margin  | The number of lines to keep above or below the cursor when scrolling. Set to `0` to allow the cursor to go up to the edges of the screen vertically.          | `3`                  |
+| gutter.line_numbers     | Controls the display of line numbers in the gutter. Set the `"line_numbers"` property to `false` to hide line numbers.                                        | `true`               |
+| command_aliases         | Object that defines aliases for commands in the command palette. You can use it to define shortcut names for commands you use often. Read below for examples. | `{}`                 |
 
 Here's an example of these settings changed:
 

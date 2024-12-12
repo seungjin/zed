@@ -108,7 +108,9 @@
       "ctrl-'": "editor::ToggleHunkDiff",
       "ctrl-\"": "editor::ExpandAllHunkDiffs",
       "ctrl-i": "editor::ShowSignatureHelp",
-      "alt-g b": "editor::ToggleGitBlame"
+      "alt-g b": "editor::ToggleGitBlame",
+      "menu": "editor::OpenContextMenu",
+      "shift-f10": "editor::OpenContextMenu"
     }
   },
   {
@@ -466,13 +468,21 @@
   },
   {
     "context": "Editor && showing_completions",
+    "use_key_equivalents": true,
     "bindings": {
-      "enter": "editor::ConfirmCompletion",
+      "enter": "editor::ConfirmCompletion"
+    }
+  },
+  {
+    "context": "Editor && !inline_completion && showing_completions",
+    "use_key_equivalents": true,
+    "bindings": {
       "tab": "editor::ComposeCompletion"
     }
   },
   {
-    "context": "Editor && inline_completion && !showing_completions",
+    "context": "Editor && inline_completion",
+    "use_key_equivalents": true,
     "bindings": {
       "tab": "editor::AcceptInlineCompletion"
     }
