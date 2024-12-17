@@ -5,7 +5,46 @@
 // Used this https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf
 [
   {
+<<<<<<< HEAD
     //"context": "Workspace",
+=======
+    "context": "Editor",
+    "bindings": {
+      "ctrl-g": "editor::Cancel",
+      "ctrl-shift-g": "go_to_line::Toggle",
+      //"ctrl-space": "editor::SetMark",
+      "ctrl-x u": "editor::Undo",
+      "ctrl-x ctrl-u": "editor::Redo",
+      "ctrl-f": "editor::MoveRight",
+      "ctrl-b": "editor::MoveLeft",
+      "ctrl-n": "editor::MoveDown",
+      "ctrl-p": "editor::MoveUp",
+      "home": ["editor::MoveToBeginningOfLine", { "stop_at_soft_wraps": false }],
+      "end": ["editor::MoveToEndOfLine", { "stop_at_soft_wraps": false }],
+      "ctrl-a": ["editor::MoveToBeginningOfLine", { "stop_at_soft_wraps": false }],
+      "ctrl-e": ["editor::MoveToEndOfLine", { "stop_at_soft_wraps": false }],
+      "alt-f": "editor::MoveToNextSubwordEnd",
+      "alt-b": "editor::MoveToPreviousSubwordStart",
+      "ctrl-d": "editor::Delete",
+      "alt-d": "editor::DeleteToNextWordEnd",
+      "ctrl-k": "editor::CutToEndOfLine",
+      "ctrl-w": "editor::Cut",
+      "alt-w": "editor::Copy",
+      "ctrl-y": "editor::Paste",
+      "ctrl-_": "editor::Undo",
+      "ctrl-v": "editor::MovePageDown",
+      "alt-v": "editor::MovePageUp",
+      "ctrl-x ]": "editor::MoveToEnd",
+      "ctrl-x [": "editor::MoveToBeginning",
+      "ctrl-l": "editor::ScrollCursorCenterTopBottom",
+      "ctrl-s": "buffer_search::Deploy",
+      "ctrl-x ctrl-f": "file_finder::Toggle",
+      "ctrl-shift-r": "editor::Rename"
+    }
+  },
+  {
+    "context": "Workspace",
+>>>>>>> ebf6804afd3eb30d8f80535f00bcb8b3c3b0ddf7
     "bindings": {
       "ctrl-s": null,
       "alt-x": "command_palette::Toggle",
@@ -72,6 +111,14 @@
       "ctrl-x t o": "pane::ActivateNextItem", // tab-bar-tab-next
       "ctrl-tab": "pane::ActivateNextItem", // tab-bar-tab-next
       "shift-ctrl-tab": "pane::ActivatePrevItem" // tab-bar-tab-previous
+    }
+  },
+  {
+    "context": "BufferSearchBar > Editor",
+    "bindings": {
+      "ctrl-s": "search::SelectNextMatch",
+      "ctrl-r": "search::SelectPrevMatch",
+      "ctrl-g": "buffer_search::Dismiss"
     }
   },
   {

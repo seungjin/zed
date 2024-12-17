@@ -101,6 +101,8 @@
   // Whether to show the informational hover box when moving the mouse
   // over symbols in the editor.
   "hover_popover_enabled": true,
+  // Time to wait before showing the informational hover box
+  "hover_popover_delay": 350,
   // Whether to confirm before quitting Zed.
   "confirm_quit": false,
   // Whether to restore last closed project when fresh Zed instance is opened.
@@ -144,6 +146,9 @@
   // 4. Highlight the full line (default):
   //    "all"
   "current_line_highlight": "all",
+  // The debounce delay before querying highlights from the language
+  // server based on the current cursor location.
+  "lsp_highlight_debounce": 75,
   // Whether to pop the completions menu while typing in an editor without
   // explicitly requesting it.
   "show_completions_on_input": true,
@@ -471,6 +476,14 @@
     // Default width of the chat panel.
     "default_width": 240
   },
+  "git_panel": {
+    // Whether to show the git panel button in the status bar.
+    "button": true,
+    // Where to the git panel. Can be 'left' or 'right'.
+    "dock": "left",
+    // Default width of the git panel.
+    "default_width": 360
+  },
   "message_editor": {
     // Whether to automatically replace emoji shortcodes with emoji characters.
     // For example: typing `:wave:` gets replaced with `👋`.
@@ -541,6 +554,8 @@
   // 4. Save when idle for a certain amount of time:
   //     "autosave": { "after_delay": {"milliseconds": 500} },
   "autosave": "off",
+  // Maximum number of tabs per pane. Unset for unlimited.
+  "max_tabs": null,
   // Settings related to the editor's tab bar.
   "tab_bar": {
     // Whether or not to show the tab bar in the editor
