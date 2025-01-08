@@ -3,114 +3,20 @@
 // from the command palette.
 //
 // Used this https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf
+// Default: https://github.com/zed-industries/zed/blob/main/assets/keymaps/default-linux.json
 [
-  {
-<<<<<<< HEAD
-    //"context": "Workspace",
-    "context": "Editor",
-    "bindings": {
-      "ctrl-g": "editor::Cancel",
-      "ctrl-shift-g": "go_to_line::Toggle",
-      //"ctrl-space": "editor::SetMark",
-      "ctrl-x u": "editor::Undo",
-      "ctrl-x ctrl-u": "editor::Redo",
-      "ctrl-f": "editor::MoveRight",
-      "ctrl-b": "editor::MoveLeft",
-      "ctrl-n": "editor::MoveDown",
-      "ctrl-p": "editor::MoveUp",
-      "home": [
-        "editor::MoveToBeginningOfLine",
-        { "stop_at_soft_wraps": false }
-      ],
-      "end": ["editor::MoveToEndOfLine", { "stop_at_soft_wraps": false }],
-      "ctrl-a": [
-        "editor::MoveToBeginningOfLine",
-        { "stop_at_soft_wraps": false }
-      ],
-      "ctrl-e": ["editor::MoveToEndOfLine", { "stop_at_soft_wraps": false }],
-      "alt-f": "editor::MoveToNextSubwordEnd",
-      "alt-b": "editor::MoveToPreviousSubwordStart",
-      "ctrl-d": "editor::Delete",
-      "alt-d": "editor::DeleteToNextWordEnd",
-      "ctrl-k": "editor::CutToEndOfLine",
-      "ctrl-w": "editor::Cut",
-      "alt-w": "editor::Copy",
-      "ctrl-y": "editor::Paste",
-      "ctrl-_": "editor::Undo",
-      "ctrl-v": "editor::MovePageDown",
-      "alt-v": "editor::MovePageUp",
-      "ctrl-x ]": "editor::MoveToEnd",
-      "ctrl-x [": "editor::MoveToBeginning",
-      "ctrl-l": "editor::ScrollCursorCenterTopBottom",
-      "ctrl-s": "buffer_search::Deploy",
-      "ctrl-x ctrl-f": "file_finder::Toggle",
-      "ctrl-shift-r": "editor::Rename"
-=======
-    "bindings": {
-      "ctrl-g": "menu::Cancel"
->>>>>>> 0b361e5b7cbf14173c70cefec540b37f917cc0e4
-    }
-  },
-  {
-    "context": "Editor",
-    "bindings": {
-<<<<<<< HEAD
-      "ctrl-s": null,
-      "alt-x": "command_palette::Toggle",
-      "ctrl-g": ["workspace::SendKeystrokes", "escape"],
-      "ctrl-x k": "pane::CloseActiveItem",
-      "ctrl-x ctrl-c": "zed::Quit",
-      "ctrl-x o": "workspace::ActivateNextPane",
-      "ctrl-x b": "tab_switcher::Toggle",
-      "ctrl-x 0": "pane::CloseActiveItem",
-      "ctrl-x 1": "workspace::ToggleZoom", // "pane::CloseInactiveItems",
-      "ctrl-x 2": "pane::SplitDown", // split-window-below
-      "ctrl-x 3": "pane::SplitRight", // sprlit-window-right
-      // "": "pane::SplitVertical", // split-window-vertically
-      // "ctrl-x W 2": "", // split-root-window-below
-      // "ctrl-x W 3": "" // split-root-window-right
-      "ctrl-x ctrl-f": "file_finder::Toggle",
-      "ctrl-x ctrl-s": "workspace::Save",
-      "ctrl-x ctrl-w": "workspace::SaveAs",
-      "ctrl-x s": "workspace::SaveAll",
-      "ctrl-x p g": "pane::DeploySearch" // project-find-regexp:
-    }
-  },
   {
     "context": "Editor || AssistantPanel",
     "bindings": {
       "ctrl-g": ["workspace::SendKeystrokes", "escape"], // "ctrl-g": "editor::Cancel",
-      "alt-g g": "go_to_line::Toggle",
       //"ctrl-space": "vim::ToggleVisual",
-      "ctrl-/": "editor::Undo",
       "ctrl-shift-/": "editor::Redo",
-      "ctrl-x u": "editor::Undo",
       "ctrl-x ctrl-u": "editor::Redo",
-      "ctrl-_": "editor::Undo",
-      "ctrl-f": "editor::MoveRight",
-      "ctrl-b": "editor::MoveLeft",
       "ctrl-n": ["workspace::SendKeystrokes", "down"], // This trick prevents creating new file at the end of buffer
       "ctrl-p": ["workspace::SendKeystrokes", "up"],
-      "ctrl-a": "editor::MoveToBeginningOfLine", // move-beginning-of-line
-      "ctrl-e": "editor::MoveToEndOfLine", // move-end-of-line
-      "alt-f": "editor::MoveToNextSubwordEnd",
-      "alt-b": "editor::MoveToPreviousSubwordStart",
-      "ctrl-d": "editor::Delete", // delete-char
-      "alt-d": "editor::DeleteToNextWordEnd",
-      "ctrl-k": "editor::CutToEndOfLine", // kill-line
-      "ctrl-w": "editor::Cut", // kill-region
-      "alt-w": "editor::Copy",
-      "ctrl-y": "editor::Paste",
-      "ctrl-v": "editor::MovePageDown",
-      "alt-v": "editor::MovePageUp",
-      "alt->": "editor::MoveToEnd", // end-of-buffer
-      "alt-<": "editor::MoveToBeginning", // beginning-of-buffer
-      "ctrl-l": "editor::ScrollCursorCenterTopBottom",
-      "ctrl-s": "buffer_search::Deploy",
       "ctrl-x ctrl-f": "file_finder::Toggle", // find-file
       //"ctrl-x x r": "editor::?", // rename-buffer
       "alt-x": "command_palette::Toggle",
-      "ctrl-x ctrl-;": "editor::ToggleComments", // comment-line
       "ctrl-c c": "task::Spawn", // Compile command
       "alt-{": "editor::MoveToStartOfParagraph",
       "alt-}": "editor::MoveToEndOfParagraph",
@@ -119,37 +25,39 @@
       "ctrl-x t 2": "workspace::NewFile", // tab-bar-new-tab
       "ctrl-x t o": "pane::ActivateNextItem", // tab-bar-tab-next
       "ctrl-tab": "pane::ActivateNextItem", // tab-bar-tab-next
-      "shift-ctrl-tab": "pane::ActivatePrevItem" // tab-bar-tab-previous
-=======
-      "ctrl-g": "editor::Cancel",
+      "shift-ctrl-tab": "pane::ActivatePrevItem", // tab-bar-tab-previous
       "ctrl-x b": "tab_switcher::Toggle", // switch-to-buffer
       "alt-g g": "go_to_line::Toggle", // goto-line
       "alt-g alt-g": "go_to_line::Toggle", // goto-line
       //"ctrl-space": "editor::SetMark",
       "ctrl-f": "editor::MoveRight", // forward-char
       "ctrl-b": "editor::MoveLeft", // backward-char
-      "ctrl-n": "editor::MoveDown", // next-line
-      "ctrl-p": "editor::MoveUp", // previous-line
-      "home": ["editor::MoveToBeginningOfLine", { "stop_at_soft_wraps": false }], // move-beginning-of-line
+      "home": [
+        "editor::MoveToBeginningOfLine",
+        { "stop_at_soft_wraps": false }
+      ], // move-beginning-of-line
       "end": ["editor::MoveToEndOfLine", { "stop_at_soft_wraps": false }], // move-end-of-line
-      "ctrl-a": ["editor::MoveToBeginningOfLine", { "stop_at_soft_wraps": false }], // move-beginning-of-line
+      "ctrl-a": [
+        "editor::MoveToBeginningOfLine",
+        { "stop_at_soft_wraps": false }
+      ], // move-beginning-of-line
       "ctrl-e": ["editor::MoveToEndOfLine", { "stop_at_soft_wraps": false }], // move-end-of-line
       "alt-f": "editor::MoveToNextSubwordEnd", // forward-word
       "alt-b": "editor::MoveToPreviousSubwordStart", // backward-word
       "alt-u": "editor::ConvertToUpperCase", // upcase-word
       "alt-l": "editor::ConvertToLowerCase", // downcase-word
       "alt-c": "editor::ConvertToUpperCamelCase", // capitalize-word
-      "alt-;": ["editor::ToggleComments", { "advance_downwards": false }],
-      "ctrl-x ctrl-;": "editor::ToggleComments",
+      "alt-;": ["editor::ToggleComments", { "advance_downwards": false }], // comment-line
+      "ctrl-x ctrl-;": "editor::ToggleComments", // comment-line
       "alt-.": "editor::GoToDefinition", // xref-find-definitions
       "alt-,": "pane::GoBack", // xref-pop-marker-stack
       "ctrl-x h": "editor::SelectAll", // mark-whole-buffer
       "ctrl-d": "editor::Delete", // delete-char
       "alt-d": "editor::DeleteToNextWordEnd", // kill-word
       "ctrl-k": "editor::KillRingCut", // kill-line
-      "ctrl-w": "editor::Cut", // kill-region
-      "alt-w": "editor::Copy", // kill-ring-save
-      "ctrl-y": "editor::KillRingYank", // yank
+      "ctrl-w": "editor::Cut", //
+      "alt-w": "editor::Copy", //
+      "ctrl-y": "editor::Paste", // yank
       "ctrl-_": "editor::Undo", // undo
       "ctrl-/": "editor::Undo", // undo
       "ctrl-x u": "editor::Undo", // undo
@@ -180,7 +88,6 @@
       "ctrl-x ctrl-s": "workspace::Save", // save-buffer
       "ctrl-x ctrl-w": "workspace::SaveAs", // write-file
       "ctrl-x s": "workspace::SaveAll" // save-some-buffers
->>>>>>> 0b361e5b7cbf14173c70cefec540b37f917cc0e4
     }
   },
   {
@@ -259,6 +166,7 @@
       "ctrl-x ctrl-f": "file_finder::Toggle",
       "ctrl-a": "editor::MoveToBeginningOfLine",
       "ctrl-e": "editor::MoveToEndOfLine",
+
       "ctrl-x u": "editor::Undo",
       "ctrl-x ctrl-u": "editor::Redo",
       "ctrl-f": "editor::MoveRight",
