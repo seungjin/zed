@@ -5,9 +5,7 @@
 // Used this https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf
 [
   {
-<<<<<<< HEAD
     //"context": "Workspace",
-=======
     "context": "Editor",
     "bindings": {
       "ctrl-g": "editor::Cancel",
@@ -19,9 +17,15 @@
       "ctrl-b": "editor::MoveLeft",
       "ctrl-n": "editor::MoveDown",
       "ctrl-p": "editor::MoveUp",
-      "home": ["editor::MoveToBeginningOfLine", { "stop_at_soft_wraps": false }],
+      "home": [
+        "editor::MoveToBeginningOfLine",
+        { "stop_at_soft_wraps": false }
+      ],
       "end": ["editor::MoveToEndOfLine", { "stop_at_soft_wraps": false }],
-      "ctrl-a": ["editor::MoveToBeginningOfLine", { "stop_at_soft_wraps": false }],
+      "ctrl-a": [
+        "editor::MoveToBeginningOfLine",
+        { "stop_at_soft_wraps": false }
+      ],
       "ctrl-e": ["editor::MoveToEndOfLine", { "stop_at_soft_wraps": false }],
       "alt-f": "editor::MoveToNextSubwordEnd",
       "alt-b": "editor::MoveToPreviousSubwordStart",
@@ -44,7 +48,6 @@
   },
   {
     "context": "Workspace",
->>>>>>> ebf6804afd3eb30d8f80535f00bcb8b3c3b0ddf7
     "bindings": {
       "ctrl-s": null,
       "alt-x": "command_palette::Toggle",
@@ -163,5 +166,45 @@
   {
     "context": "TabSwitcher",
     "bindings": {}
+  },
+
+  // MYVIM
+  {
+    "context": "VimControl",
+    "bindings": {
+      "l": "vim::Up",
+      "h": "vim::Down",
+      "k": "vim::Right",
+      "j": "vim::Left",
+      "!": "task::Spawn",
+      //
+      "ctrl-n": "editor::ShowCompletions"
+    }
+  },
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      "ctrl-x": null,
+      "ctrl-x ctrl-c": "workspace::CloseWindow",
+      "alt-x": "command_palette::Toggle",
+      "ctrl-g": ["workspace::SendKeystrokes", "escape"],
+      "ctrl-x ctrl-s": "workspace::Save",
+      "ctrl-x ctrl-f": "file_finder::Toggle",
+      "ctrl-a": "editor::MoveToBeginningOfLine",
+      "ctrl-e": "editor::MoveToEndOfLine",
+      "ctrl-x u": "editor::Undo",
+      "ctrl-x ctrl-u": "editor::Redo",
+      "ctrl-f": "editor::MoveRight",
+      "ctrl-b": "editor::MoveLeft",
+      "ctrl-n": "editor::MoveDown",
+      "ctrl-p": "editor::MoveUp",
+      "ctrl-d": "editor::Delete",
+      "alt-d": "editor::DeleteToNextWordEnd",
+      "ctrl-k": "editor::DeleteLine",
+      "ctrl-w": "editor::Cut",
+      "alt-w": "editor::Copy",
+      "ctrl-y": "editor::Paste",
+      "ctrl-;": "editor::ToggleComments"
+    }
   }
 ]
