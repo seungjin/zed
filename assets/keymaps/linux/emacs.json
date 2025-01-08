@@ -4,12 +4,14 @@
 //
 // Used this https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf
 // Default: https://github.com/zed-industries/zed/blob/main/assets/keymaps/default-linux.json
+//
 [
   {
     "context": "Editor || AssistantPanel",
     "bindings": {
       "ctrl-g": ["workspace::SendKeystrokes", "escape"], // "ctrl-g": "editor::Cancel",
-      //"ctrl-space": "vim::ToggleVisual",
+      //"ctrl-space": "editor::SetMark",
+      "ctrl-space": "vim::ToggleVisual",
       "ctrl-shift-/": "editor::Redo",
       "ctrl-x ctrl-u": "editor::Redo",
       "ctrl-n": ["workspace::SendKeystrokes", "down"], // This trick prevents creating new file at the end of buffer
@@ -29,7 +31,6 @@
       "ctrl-x b": "tab_switcher::Toggle", // switch-to-buffer
       "alt-g g": "go_to_line::Toggle", // goto-line
       "alt-g alt-g": "go_to_line::Toggle", // goto-line
-      //"ctrl-space": "editor::SetMark",
       "ctrl-f": "editor::MoveRight", // forward-char
       "ctrl-b": "editor::MoveLeft", // backward-char
       "home": [
