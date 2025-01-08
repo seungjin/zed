@@ -8,7 +8,6 @@ use futures::channel::mpsc;
 use futures::{Future, StreamExt};
 use gpui::{AppContext, BackgroundExecutor, Task};
 use http_client::{self, AsyncBody, HttpClient, HttpClientWithUrl, Method, Request};
-use once_cell::sync::Lazy;
 use parking_lot::Mutex;
 use release_channel::ReleaseChannel;
 use settings::{Settings, SettingsStore};
@@ -16,10 +15,15 @@ use sha2::{Digest, Sha256};
 use std::fs::File;
 use std::io::Write;
 use std::time::Instant;
-use std::{env, mem, path::PathBuf, sync::Arc, time::Duration};
+use std::{
+    env, mem,
+    path::PathBuf,
+    sync::{Arc, LazyLock},
+    time::Duration,
+};
 use telemetry_events::{
     AppEvent, AssistantEvent, CallEvent, EditEvent, Event, EventRequestBody, EventWrapper,
-    InlineCompletionEvent, InlineCompletionRating, InlineCompletionRatingEvent, SettingEvent,
+    InlineCompletionEvent,
 };
 use util::{ResultExt, TryFutureExt};
 use worktree::{UpdatedEntriesSet, WorktreeId};
@@ -84,7 +88,7 @@ const FLUSH_INTERVAL: Duration = Duration::from_secs(1);
 
 #[cfg(not(debug_assertions))]
 const FLUSH_INTERVAL: Duration = Duration::from_secs(60 * 5);
-static ZED_CLIENT_CHECKSUM_SEED: Lazy<Option<Vec<u8>>> = Lazy::new(|| {
+static ZED_CLIENT_CHECKSUM_SEED: LazyLock<Option<Vec<u8>>> = LazyLock::new(|| {
     option_env!("ZED_CLIENT_CHECKSUM_SEED")
         .map(|s| s.as_bytes().into())
         .or_else(|| {
@@ -349,24 +353,6 @@ impl Telemetry {
         self.report_event(event)
     }
 
-    pub fn report_inline_completion_rating_event(
-        self: &Arc<Self>,
-        rating: InlineCompletionRating,
-        input_events: Arc<str>,
-        input_excerpt: Arc<str>,
-        output_excerpt: Arc<str>,
-        feedback: String,
-    ) {
-        let event = Event::InlineCompletionRating(InlineCompletionRatingEvent {
-            rating,
-            input_events,
-            input_excerpt,
-            output_excerpt,
-            feedback,
-        });
-        self.report_event(event);
-    }
-
     pub fn report_assistant_event(self: &Arc<Self>, event: AssistantEvent) {
         self.report_event(Event::Assistant(event));
     }
@@ -392,15 +378,6 @@ impl Telemetry {
         self.report_event(event.clone());
 
         event
-    }
-
-    pub fn report_setting_event(self: &Arc<Self>, setting: &'static str, value: String) {
-        let event = Event::Setting(SettingEvent {
-            setting: setting.to_string(),
-            value,
-        });
-
-        self.report_event(event)
     }
 
     pub fn log_edit_event(self: &Arc<Self>, environment: &'static str, is_via_ssh: bool) {
