@@ -11,7 +11,7 @@
     "bindings": {
       "ctrl-g": ["workspace::SendKeystrokes", "escape"], // "ctrl-g": "editor::Cancel",
       //"ctrl-space": "editor::SetMark",
-      "ctrl-space": "vim::ToggleVisual",
+      //"ctrl-space": "vim::ToggleVisual",
       "ctrl-shift-/": "editor::Redo",
       "ctrl-x ctrl-u": "editor::Redo",
       "ctrl-n": ["workspace::SendKeystrokes", "down"], // This trick prevents creating new file at the end of buffer
@@ -144,6 +144,7 @@
   },
 
   // MYVIM
+  // My vim keybinding for Colemak layout
   {
     "context": "VimControl",
     "bindings": {
@@ -154,33 +155,6 @@
       "!": "task::Spawn",
       //
       "ctrl-n": "editor::ShowCompletions"
-    }
-  },
-  {
-    "context": "vim_mode == insert",
-    "bindings": {
-      "ctrl-x": null,
-      "ctrl-x ctrl-c": "workspace::CloseWindow",
-      "alt-x": "command_palette::Toggle",
-      "ctrl-g": ["workspace::SendKeystrokes", "escape"],
-      "ctrl-x ctrl-s": "workspace::Save",
-      "ctrl-x ctrl-f": "file_finder::Toggle",
-      "ctrl-a": "editor::MoveToBeginningOfLine",
-      "ctrl-e": "editor::MoveToEndOfLine",
-
-      "ctrl-x u": "editor::Undo",
-      "ctrl-x ctrl-u": "editor::Redo",
-      "ctrl-f": "editor::MoveRight",
-      "ctrl-b": "editor::MoveLeft",
-      "ctrl-n": "editor::MoveDown",
-      "ctrl-p": "editor::MoveUp",
-      "ctrl-d": "editor::Delete",
-      "alt-d": "editor::DeleteToNextWordEnd",
-      "ctrl-k": "editor::DeleteLine",
-      "ctrl-w": "editor::Cut",
-      "alt-w": "editor::Copy",
-      "ctrl-y": "editor::Paste",
-      "ctrl-;": "editor::ToggleComments"
     }
   }
 ]
